@@ -2,15 +2,16 @@ spring:
    application:
       name: spirng-boot-rabbitmq-sender
    rabbitmq:
-      host: 120.77.214.1
+      host: rabbitmq.dev.com
       port: 5672
-      username: admin
-      password: admin
-      publisher-confirms: true
-      virtual-host: /
+      username: guest
+      password: guest
+      listener:
+         simple:
+            acknowledge-mode: manual
 server:
    port: 7081
-test:
-   mq:
-      exchange: testExchange
-      routingKey: testKey
+mq:
+   emp:
+      exchange: eebo.iam.change_emp
+      routingKey: eebo.iam.addOrUpdate_emp_key

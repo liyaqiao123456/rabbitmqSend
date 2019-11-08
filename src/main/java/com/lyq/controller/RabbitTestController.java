@@ -1,5 +1,6 @@
 package com.lyq.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.lyq.mqsend.HelloSender1;
 import com.lyq.mqsend.HelloSender2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class RabbitTest {
+public class RabbitTestController {
 
     @Autowired
     private HelloSender1 helloSender1;
@@ -27,7 +28,7 @@ public class RabbitTest {
     }
 
     @GetMapping("/hello3")
-    public void hello3() {
+    public void hello3() throws JsonProcessingException {
         helloSender2.send1();
     }
 }
